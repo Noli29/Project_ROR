@@ -27,25 +27,10 @@
                 </li>
               </ul>
             </li>
-         <% elsif current_admin%>
-                <li><%= link_to "Home", current_user %></li>
-                <li id="fat-menu" class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    Account <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                    <li><%= link_to "Profile", current_admin %></li>
-                    <li><%= link_to "Edit", edit_admin_path_path(current_admin) %></li>
-                    <li><%= link_to "Users", users_path %></li>
-                    <li class="divider"></li>
-                    <li>
-                      <%= link_to "Sign out", admin_logout_path %>
-                    </li>
-                  </ul>
-                </li>
-        <% else %>
-            <li><%= link_to "Sign in", signin_path, admin_login_path %></li>
 
+        <% else %>
+            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "Sign in", admin_login_path %></li>
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

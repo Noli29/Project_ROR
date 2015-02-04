@@ -17,6 +17,13 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
 
+
+  Roles = [ :admin , :default ]
+
+  def is?( requested_role )
+    self.role == requested_role.to_s
+  end
+
   private
 
   def create_remember_token

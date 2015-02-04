@@ -1,18 +1,27 @@
 Lalala::Application.routes.draw do
 
-  resources :AdminsController
-  resources :users
-  resources :sessions
+ # resources :admins
 
-  # match '/signup',  to: 'users#new'
-  # match '/signin',  to: 'sessions#new'
-  # match '/signout', to: 'sessions#destroy', via: :delete
+
 
   get "signout" => "sessions#destroy", :as => "signout"
   get "signin" => "sessions#new", :as => "signin"
   get "signup" => "users#new", :as => "signup"
 
   root to: "static_pages#home"
+
+  resources :users
+
+  resources :sessions
+
+  get "admin_logout" => "sessions#destroy", :as =>"admin_logout"
+  get "admin_login" => "sessions#new", :as => "admin_login"
+  get "admin_signup" => "admins#new", :as => "admin_signup"
+
+
+  resources :admins
+
+
 
 
 

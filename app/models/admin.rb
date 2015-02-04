@@ -1,11 +1,13 @@
-class User < ActiveRecord::Base
-  attr_accessible :name, :email, :password, :password_confirmation
+class Admin < ActiveRecord::Base
+  attr_accessible :alias, :email, :password, :password_confirmation
   has_secure_password
 
   before_save { |admin| admin.email = email.downcase }
   before_save :create_remember_token
 
-  validates :name, presence: true, length: { maximum: 50 }
+  has_one :role
+
+  validates :alias, presence: true, length: { maximum: 15 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
             format:     { with: VALID_EMAIL_REGEX },

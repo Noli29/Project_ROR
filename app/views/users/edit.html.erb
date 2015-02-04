@@ -1,16 +1,19 @@
 <% provide(:title, "Edit user") %>
 <h1 style="color:#00EE76"> <center> Edit profile </center></h1>
 
- <div class="row">
-   <div class="span6 offset3">
-       <%= form_for(@user) do |f| %>
-          <%= render 'shared/error_messages' %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages' %>
 
         <center>   <%= f.label :name %> </center>
         <center>   <%= f.text_field :name %> </center>
 
-         <center>   <%= f.label :surname %> </center>
-         <center>   <%= f.text_field :surname %> </center>
+        <center>   <%= f.label :surname %> </center>
+        <center>   <%= f.text_field :surname %> </center>
+
+        <center>   <%= f.label :age %> </center>
+        <center>   <%= f.text_field :age %> </center>
 
         <center>   <%= f.label :email %> </center>
         <center>   <%= f.text_field :email %> </center>
@@ -20,7 +23,7 @@
 
         <center>   <%= f.label :password_confirmation, "Confirm Password" %> </center>
         <center>   <%= f.password_field :password_confirmation %> </center>
-   <br>
+        <br>
         <center>   <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>
     <% end %>
 

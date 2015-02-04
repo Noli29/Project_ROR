@@ -11,14 +11,14 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page], :per_page => 1)
+    @users = User.paginate(page: params[:page], :per_page => 2)
   end
 
   def create
     @user = User.new(params[:user])
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome"
+      flash[:success] = ""
       redirect_to @user
     else
       render 'new'

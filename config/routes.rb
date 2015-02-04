@@ -1,11 +1,12 @@
 Lalala::Application.routes.draw do
 
+  resources :admin
   resources :users
   resources :sessions
 
- # match '/signup',  to: 'users#new'
- # match '/signin',  to: 'sessions#new'
- # match '/signout', to: 'sessions#destroy', via: :delete
+  # match '/signup',  to: 'users#new'
+  # match '/signin',  to: 'sessions#new'
+  # match '/signout', to: 'sessions#destroy', via: :delete
 
   get "signout" => "sessions#destroy", :as => "signout"
   get "signin" => "sessions#new", :as => "signin"

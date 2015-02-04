@@ -40,6 +40,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+
+  end
+
   private
 
   def signed_in_user

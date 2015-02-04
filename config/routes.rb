@@ -1,6 +1,6 @@
 Lalala::Application.routes.draw do
 
-  resources :admin
+  resources :AdminsController
   resources :users
   resources :sessions
 

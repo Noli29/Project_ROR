@@ -1,5 +1,5 @@
 class Admin < ActiveRecord::Base
-  attr_accessible :alias, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
 
   before_save { |admin| admin.email = email.downcase }
@@ -7,7 +7,7 @@ class Admin < ActiveRecord::Base
 
   has_one :role
 
-  validates :alias, presence: true, length: { maximum: 15 }
+  validates :name, presence: true, length: { maximum: 15 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence:   true,
             format:     { with: VALID_EMAIL_REGEX },

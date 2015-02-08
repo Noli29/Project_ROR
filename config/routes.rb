@@ -1,13 +1,10 @@
 Lalala::Application.routes.draw do
 
- # resources :admins
-
-
-
   get "signout" => "sessions#destroy", :as => "signout"
   get "signin" => "sessions#new", :as => "signin"
   get "signup" => "users#new", :as => "signup"
 
+  get "check_in" => "static_pages#check_in"
   root to: "static_pages#home"
 
   resources :users

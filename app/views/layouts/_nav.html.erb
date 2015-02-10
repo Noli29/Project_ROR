@@ -11,9 +11,9 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
-        <!-- <li><%= link_to "Home", current_user %></li> -->
         <% if signed_in? %>
-            <li><%= link_to "Home", current_user %></li>
+            <!-- <li><%= link_to "Home", current_user %></li> -->
+            <% if current_user %>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
@@ -27,9 +27,26 @@
                 </li>
               </ul>
             </li>
+            <% elsif current_admin %>
+                <li id="fat-menu" class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    Account <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li><%= link_to "Profile", current_admin %></li>
+                    <li><%= link_to "Edit", edit_admin_path(current_admin) %></li>
+                    <li><%= link_to "Users", users_path %></li>
+                    <li class="divider"></li>
+                    <li>
+                      <%= link_to "Sign out", signout_path %>
+                    </li>
+                  </ul>
+                </li>
+            <% end %>
 
         <% else %>
             <li><%= link_to "Sign in", signin_path %></li>
+
         <% end %>
       </ul>
     </div><!--/.nav-collapse -->

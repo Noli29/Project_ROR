@@ -1,7 +1,7 @@
 Lalala::Application.routes.draw do
 
-  get "signout" => "sessions#destroy", :as => "signout"
-  get "signin" => "sessions#new", :as => "signin"
+  get "signout" => "sessions#destroy"
+  get "signin" => "sessions#new"
   get "signup" => "users#new", :as => "signup"
 
   get "check_in" => "static_pages#check_in"
@@ -11,8 +11,8 @@ Lalala::Application.routes.draw do
 
   resources :sessions
 
-  get "admin_logout" => "sessions#destroy", :as =>"signout"
-  get "admin_login" => "sessions#new", :as => "admin_login"
+  get "admin_logout" => "sessions#destroy"
+  get "admin_login" => "sessions#new"
   get "admin_signup" => "admins#new", :as => "admin_signup"
 
 

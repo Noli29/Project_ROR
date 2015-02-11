@@ -1,5 +1,5 @@
 class AdminsController < ApplicationController
-#  load_and_authorize_resource
+  load_and_authorize_resource
 
   before_filter :signed_in_admin, only: [:index, :edit, :update]
   before_filter :correct_admin,   only: [:edit, :update]

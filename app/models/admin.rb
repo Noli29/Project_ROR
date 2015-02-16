@@ -15,6 +15,15 @@ class Admin < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
 
+  def self.authenticate(email, password)
+    admin = find_by_email(email)
+    if admin && admin.password_hash == BCrypt::Engine.hash_secret(password, admin.password_salt)
+      admin
+    else
+      nil
+    end
+  end
+
   private
 
   def create_remember_token

@@ -2,7 +2,7 @@ class AdminsController < ApplicationController
   load_and_authorize_resource
 
   before_filter :signed_in_admin, only: [:index, :edit, :update]
-  before_filter :correct_admin,   only: [:edit, :update]
+
 
   def show
     @admin = Admin.find(params[:id])
@@ -17,7 +17,7 @@ class AdminsController < ApplicationController
   end
 
   def create
-    @admin = Admin.new(params[:user])
+    @admin = Admin.new(params[:admin])
     if @admin.save
       sign_in @admin
       flash[:success] = ""
@@ -51,8 +51,7 @@ class AdminsController < ApplicationController
     end
   end
 
-  def correct_admin
-    @admin = Admin.find(params[:id])
-    redirect_to(root_url) unless current_user?(@admin)
+  def admin_params
+    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
   end
 end

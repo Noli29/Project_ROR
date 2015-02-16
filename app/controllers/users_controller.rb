@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   before_filter :signed_in_user, only: [:index, :edit, :update]
-  before_filter :correct_user,   only: [:edit, :update]
 
   def show
     @user = User.find(params[:id])
@@ -11,6 +10,7 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
 
   def index
     @users = User.paginate(page: params[:page], :per_page => 2)
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
 
   def edit
 
@@ -57,8 +58,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
+  def user_params
+    params.require(:user).permit(:name, :surname, :email, :password, :password_confirmation, :avatar)
   end
 end

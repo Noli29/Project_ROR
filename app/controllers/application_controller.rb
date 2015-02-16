@@ -1,20 +1,27 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+  helper_method :current_user
+  helper_method :current_admin
 
-  include SessionsHelper
+private
 
-  # Catch all CanCan errors and alert the user of the exception
-  rescue_from CanCan::AccessDenied do | exception |
-    redirect_to root_url, alert: exception.message
+  def current_ability
+    if current_user
+    @current_ability ||= Ability.new(current_user)
+    elsif current_admin
+      @current_ability ||= Ability.new(current_admin)
+    end
+  end
+
+  def current_user
+    @current_user ||= User.find(session[:user_id]) if session[:user_id]
+
   end
 
 
-
-  # Force signout to prevent CSRF attacks
-  def handle_unverified_request
-    sign_out
-    super
+  def current_admin
+    @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
   end
 
 end

@@ -12,7 +12,7 @@ Lalala::Application.routes.draw do
   resources :sessions
 
   get "admin_logout" => "sessions#destroy"
-  get "admin_login" => "sessions#new"
+  get "admin_login" => "sessions#new", :as => "admin_signin"
   get "admin_signup" => "admins#new", :as => "admin_signup"
 
 

@@ -8,11 +8,6 @@ gem 'rails', '3.2.13'
 #gem 'sqlite3'
 gem 'mysql2'
 
-
-group :development, :test do
-  gem 'rspec-rails', '3.0'
-end
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,9 +21,11 @@ group :assets do
   #gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'devise'
+gem 'paperclip'
 
 gem 'cancan'
+
+gem 'pry'
 
 gem 'jquery-rails'
 
@@ -47,3 +44,16 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+
+end
+
+group :test do
+  gem 'simplecov'
+  gem 'database_cleaner'
+end
+
+

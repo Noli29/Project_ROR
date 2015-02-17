@@ -3,29 +3,19 @@ class SessionsController < ApplicationController
   end
 
 def create
-    if params[:admin] == 'true'
-      admin = Admin.authenticate(params[:email], params[:password])
-      if admin
-        session[:admin_id] = admin.id
-        session[:user_id] = user.id
-        redirect_to users_path, :notice => "Logged in!"
-      else
-        flash.now.alert = "Invalid email/password combination"
-        render "new"
-      end
-  else
-    user = User.authenticate(params[:email], params[:password])
-    if user
-      session[:admin_id] = nil
+  admin = Admin.authenticate(params[:session][:email], params[:session][:password])
+  if admin
+    session[:admin_id]=admin.id
+    if user = User.authenticate(params[:session][:email], params[:session][:password])
       session[:user_id] = user.id
-      redirect_to user, :notice => "Logged in!"
-    else
-      flash.now.alert = "Invalid email/password combination"
-      render "new"
+      redirect_to root_url, :notice => "Logged in!"
     end
+    redirect_to users_path, :notice => "Logged in!"
+  else
+    flash.now.alert = "Invalid email or password"
+    render "new"
   end
-
- end
+end
 
   def destroy
     if params[:admin] == 'true'

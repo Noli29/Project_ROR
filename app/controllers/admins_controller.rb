@@ -3,7 +3,6 @@ class AdminsController < ApplicationController
 
   before_filter :signed_in_admin, only: [:index, :edit, :update]
 
-
   def show
     @admin = Admin.find(params[:id])
   end
@@ -51,7 +50,5 @@ class AdminsController < ApplicationController
     end
   end
 
-  def admin_params
-    params.require(:admin).permit(:name, :email, :password, :password_confirmation)
-  end
+
 end

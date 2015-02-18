@@ -50,5 +50,8 @@ class AdminsController < ApplicationController
     end
   end
 
+  def admin_params
+    params.require(:admin).permit(:email, :name, :password, :password_confirmation)
+  end
 
 end

@@ -18,9 +18,9 @@ class Ability
 
 
 
-  def role?(role)
-    self.role.name == role
-  end
+ # def role?(role)
+  #  self.role.name == role
+ # end
 
 end
 

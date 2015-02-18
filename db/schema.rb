@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150217210955) do
+ActiveRecord::Schema.define(:version => 20150218160655) do
 
   create_table "admins", :force => true do |t|
     t.string   "name"
@@ -20,13 +20,13 @@ ActiveRecord::Schema.define(:version => 20150217210955) do
     t.string   "password_salt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "role_id"
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.integer  "admin_id"
   end
 
   create_table "users", :force => true do |t|
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20150217210955) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer  "role_id"
   end
 
 end

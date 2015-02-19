@@ -16,7 +16,7 @@
 <%= render 'layouts/nav' %>
 <div class="container-narrow">
   <div class="row">
-    <div class="col-sm-6 col-md-4 col-md-offset-4 col-sm-offset-3">
+    <div class="">
       <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, :id => "flash_#{name}" %>
       <% end %>
@@ -27,8 +27,8 @@
   </div>
 
   <div id="footer" >
-    <div class="container">
-      <p class="muted credit">Noli</br>
+    <div class="container" style="padding: 0 150px;">
+      <p class="muted credit">creator Natasha<br>
         email: noli.pogorelova@gmail.com
       </p>
     </div>

@@ -21,7 +21,6 @@ class Admin < ActiveRecord::Base
   def self.authenticate(email, password)
     admin = find_by_email(email)
     if admin && admin.password_hash == BCrypt::Engine.hash_secret(password, admin.password_salt)
-    #if @user_hash == BCrypt::Engine.hash_secret(params[:password], @user.password_salt.to_s)
       admin
     else
       nil

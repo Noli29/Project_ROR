@@ -20,10 +20,13 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
 
 
-  Roles = [ :admin , :default ]
+ # Roles = [ :admin , :default ]
 
-  def is?( requested_role )
-    self.role == requested_role.to_s
+ # def role?(role)
+ #   self.role.name == role
+ # end
+  def role?(role)
+    return !!self.role.find_by_name(role.to_s.camelize)
   end
 
 
@@ -33,8 +36,8 @@ class User < ActiveRecord::Base
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
     else
-    nil
-  end
+      nil
+    end
   end
 
   def encrypt_password
@@ -43,6 +46,4 @@ class User < ActiveRecord::Base
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
-
-
 end

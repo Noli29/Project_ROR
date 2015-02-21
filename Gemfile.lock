@@ -171,7 +171,7 @@ DEPENDENCIES
   factory_girl_rails
   jquery-rails
   mysql2
-  paperclip
+  paperclip (~> 4.2)
   pry
   quiet_assets
   rails (= 3.2.13)

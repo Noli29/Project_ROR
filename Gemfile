@@ -21,15 +21,11 @@ group :assets do
   #gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
 end
-gem 'paperclip'
 
-gem 'cancan'
-
-gem 'pry'
-
-gem 'jquery-rails'
-
-
+  gem "paperclip", "~> 4.2"
+  gem 'cancan'
+  gem 'pry'
+  gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

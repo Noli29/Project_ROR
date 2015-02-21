@@ -11,7 +11,7 @@ class Ability
     elsif user.role?('admin')
       can :manage, User
     else
-      can :manage, :all
+      can [:create, :new, :edit,:show, :update], User
     end
   end
 

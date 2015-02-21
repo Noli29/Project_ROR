@@ -3,8 +3,11 @@
   <aside class="span4">
     <section>
       <h1> <center>
+        <%= image_tag @user.avatar.url %>
+        <%= image_tag @user.avatar.url(:medium) %>
+        <%= image_tag @user.avatar.url(:thumb) %>
         <%= @user.name %>
-
+        <%= @user.surname %>
       </center> </h1>
     </section>
   </aside>

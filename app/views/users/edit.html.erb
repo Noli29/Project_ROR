@@ -4,7 +4,6 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@user) do |f| %>
-
         <%= render 'shared/error_messages' %>
 
         <center>   <%= f.label :name %> </center>
@@ -13,25 +12,21 @@
         <center>   <%= f.label :surname %> </center>
         <center>   <%= f.text_field :surname %> </center>
 
-        <center>   <%= f.label :age %> </center>
-        <center>   <%= f.text_field :age %> </center>
-
         <center>   <%= f.label :email %> </center>
         <center>   <%= f.text_field :email %> </center>
-
-        <center>   <%= f.label :avatar %> </center>
-        <center>   <%= f.file_field :avatar %> </center>
 
         <center>   <%= f.label :password %> </center>
         <center>   <%= f.password_field :password %> </center>
 
         <center>   <%= f.label :password_confirmation, "Confirm Password" %> </center>
         <center>   <%= f.password_field :password_confirmation %> </center>
-<br>
 
-        <center>   <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>
+        <center> <br>
+          <%= form_for @user, :url => users_path, :html => { :multipart => true } do |form| %>
+              <%= form.file_field :avatar %>
+          <% end %>
+        </center>
+        <br> <center>   <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>
     <% end %>
-
-
   </div>
 </div>

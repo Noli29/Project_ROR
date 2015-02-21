@@ -2,16 +2,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_user
-  helper_method :current_admin
+
 
 private
 
   def current_ability
-    if current_user
     @current_ability ||= Ability.new(current_user)
-    elsif current_admin
-      @current_ability ||= Ability.new(current_admin)
-    end
   end
 
   def current_user
@@ -19,8 +15,5 @@ private
 
   end
 
-  def current_admin
-    @current_admin ||= Admin.find(session[:admin_id]) if session[:admin_id]
-  end
 
 end

@@ -13,7 +13,7 @@ gem 'mysql2'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'bootstrap-sass', '~> 3.1.1.0'
+  gem 'bootstrap-sass', '= 3.1.1.0'
 
   gem "will_paginate", "~> 3.0.4"
   gem 'bootstrap-will_paginate', '0.0.6'
@@ -47,15 +47,14 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+gem 'thin'
 group :test, :development do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-
+  gem  'quiet_assets'
 end
 
 group :test do
   gem 'simplecov'
   gem 'database_cleaner'
 end
-
-

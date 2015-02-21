@@ -5,20 +5,15 @@ class Ability
 
     user ||= User.new
 
-    if user.role?('user')
-      can [:create, :new, :edit,:show], User
-    elsif user.role? Admin
-      if user.role?('admin')
-        can :manage, Admin
-      elsif user.role? :super_admin
-        can :manage, :all
-      end
+
+    if user.role?('super_admin')
+      can :manage, :all
+    elsif user.role?('admin')
+      can :manage, User
+    else
+      can :manage, :all
     end
   end
-
-
-
-
 
 end
 

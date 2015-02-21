@@ -33,6 +33,15 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to(@user) }
+        format.js
+      else
+        format.html { render :action => "edit" }
+        format.js
+      end
+    end
     if @user.update_attributes(params[:user])
       redirect_to @user
     else

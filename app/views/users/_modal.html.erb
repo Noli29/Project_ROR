@@ -7,30 +7,29 @@
       </div>
       <% provide(:title, "Edit user") %>
       <div class="modal-body">
-            <%= form_for @user, remote: true, :html =>{ :class => 'form-horizontal', :multipart => true } do |f| %>
-                <%= render 'shared/error_messages' %>
+        <%= form_for @user, remote: true, :html =>{ :class => 'form-horizontal', :multipart => true } do |f| %>
+            <%= render 'shared/error_messages' %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
 
-                <center>   <%= f.label :name %> </center>
-                <center>   <%= f.text_field :name %> </center>
+            <%= f.label :surname %>
+            <%= f.text_field :surname %>
 
-                <center>   <%= f.label :surname %> </center>
-                <center>   <%= f.text_field :surname %> </center>
+            <%= f.label :email %>
+            <%= f.text_field :email %>
 
-                <center>   <%= f.label :email %> </center>
-                <center>   <%= f.text_field :email %> </center>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
 
-                <center>   <%= f.label :password %> </center>
-                <center>   <%= f.password_field :password %> </center>
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation %>
 
-                <center>   <%= f.label :password_confirmation, "Confirm Password" %> </center>
-                <center>   <%= f.password_field :password_confirmation %> </center>
-
-                <br> <center>   <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>
-            <% end %>
       </div>
       <div class="modal-footer">
         <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

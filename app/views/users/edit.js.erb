@@ -1,2 +1,4 @@
-$('#myModal .modal-body').html("<%= j render 'modal'%>");
-$('#myModal').modal('show');
+$("#Mymodal").html("<%= escape_javascript(render 'modal') %>")
+$("#Mymodal").modal("show")
+
+

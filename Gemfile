@@ -22,7 +22,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-  gem "paperclip", "~> 4.2"
+  gem 'carrierwave'
   gem 'cancan'
   gem 'pry'
   gem 'jquery-rails'

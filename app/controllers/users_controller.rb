@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
- # before_filter :signed_in_user, only: [:index, :edit, :update]
+  respond_to :html, :js
 
   def show
     @user = User.find(params[:id])
@@ -11,15 +11,12 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-
-
   def index
     @users = User.paginate(page: params[:page], :per_page => 2)
   end
 
   def create
-    @user = User.create( params[:user] )
- #   @user = User.new(params[:user])
+   @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user.id
       flash[:success] = ""

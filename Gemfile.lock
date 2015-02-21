@@ -36,10 +36,11 @@ GEM
       will_paginate
     builder (3.0.4)
     cancan (1.6.10)
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.5)
-      climate_control (>= 0.0.3, < 1.0)
+    carrierwave (0.10.0)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
+      json (>= 1.7)
+      mime-types (>= 1.16)
     coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -74,11 +75,6 @@ GEM
     mime-types (1.25.1)
     multi_json (1.10.1)
     mysql2 (0.3.17)
-    paperclip (4.2.1)
-      activemodel (>= 3.0.0)
-      activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
-      mime-types
     polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -166,12 +162,12 @@ DEPENDENCIES
   bootstrap-sass (= 3.1.1.0)
   bootstrap-will_paginate (= 0.0.6)
   cancan
+  carrierwave
   coffee-rails (~> 3.2.1)
   database_cleaner
   factory_girl_rails
   jquery-rails
   mysql2
-  paperclip (~> 4.2)
   pry
   quiet_assets
   rails (= 3.2.13)

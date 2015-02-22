@@ -4,7 +4,7 @@
 <ul class="users">
   <section>
     <%= will_paginate @users %>
-    <%= image_tag @user.avatar.url(:display) %>
+    <%= image_tag @user.avatar.url %>
     <%= @user.name %>
     <%= @user.surname %> <br>
   </section>

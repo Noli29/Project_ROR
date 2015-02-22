@@ -3,6 +3,11 @@
   <aside class="span4">
     <section>
       <h1> <center>
+        <p>
+          <strong>Avatar:
+          </strong>
+          <%= image_tag @user.avatar.url(:large) %>
+        </p>
         <%= @user.name %>
         <%= @user.surname %>
       </center> </h1>

@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
+    @users = User.search(params[:search], params[:page])
   end
 
   def create
@@ -58,6 +58,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :name,:surname, :password, :password_confirmation)
+    params.require(:user).permit(:email, :name, :surname, :avatar, :password, :password_confirmation)
   end
 end

@@ -1,33 +1,13 @@
 <% provide(:title, 'All users') %>
 <h1> <center> All users </center> </h1>
 
-
-
-
-
-
-<%= form_tag users_path, :method => 'get', :id => "users_search" do %>
-    <p>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", :name => nil %>
-    </p>
-    <div id="users"><%= render 'users' %></div>
-<% end %>
-
-<!--
-
 <ul class="users">
   <section>
     <%= will_paginate @users %>
-    <%= image_tag @user.avatar.url("medium") %>
-      <h1>
-         <center>
-           <%= @user.name %>
-           <%= @user.surname %> <br>
-         </center>
-      </h1>
+    <%= image_tag @user.avatar.url(:display) %>
+    <%= @user.name %>
+    <%= @user.surname %> <br>
   </section>
 </ul>
 
 
--->

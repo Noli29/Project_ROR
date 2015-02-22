@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation
   attr_accessor :password, :password_confirmation
+  has_attached_file :avatar, :styles => { :large => "500x500>", :display => "200x200#" },
+                    :default_url => "/assets/missing_avatar.png"
+
 
   before_save { |user| user.email = email.downcase }
   before_save :encrypt_password
@@ -17,6 +20,10 @@ class User < ActiveRecord::Base
           #  uniqueness: { case_sensitive: false }
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
+  validates_attachment :avatar,
+                       :presence => true,
+                       :size => { :in => 0..10.megabytes },
+                       :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/}
 
 
 
@@ -28,12 +35,10 @@ class User < ActiveRecord::Base
     self.role == role
   end
 
-  def self.search(search)
-    if search
-      where('name LIKE ?', "%#{search}%")
-    else
-      scoped
-    end
+  def self.search(search, page)
+    paginate :per_page => 5, :page => page,
+             :conditions => ['name like ?', "%#{search}%"],
+             :order => 'name'
   end
 
   def self.authenticate(email, password)

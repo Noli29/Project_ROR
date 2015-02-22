@@ -24,6 +24,10 @@
             <%= f.label :password_confirmation, "Confirm Password" %>
             <%= f.password_field :password_confirmation %>
 
+            <%=f.label :avatar, "Avatar:" %>
+            <%= f.file_field :avatar%>
+
+            <div class="clear"></div>
       </div>
       <div class="modal-footer">
         <%= f.submit "Save changes", class: "btn btn-large btn-success" %>

@@ -5,3 +5,4 @@ ActiveSupport::Deprecation.silenced = true
 
 # Initialize the rails application
 Lalala::Application.initialize!
+

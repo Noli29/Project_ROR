@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
+
+  #include Authenticate
+
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation
   attr_accessor :password, :password_confirmation
-
-
 
   before_save { |user| user.email = email.downcase }
   before_save :encrypt_password
@@ -27,9 +28,15 @@ class User < ActiveRecord::Base
     self.role == role
   end
 
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
 
   def self.authenticate(email, password)
-    find_by_email(email)
     user = find_by_email(email)
     if user && user.password_hash == BCrypt::Engine.hash_secret(password, user.password_salt)
       user
@@ -38,10 +45,12 @@ class User < ActiveRecord::Base
     end
   end
 
+
   def encrypt_password
     if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
+
 end

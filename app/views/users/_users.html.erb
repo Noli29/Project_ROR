@@ -1,8 +1,15 @@
-<li>
 
+
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<%= will_paginate @users %>
+
+
+<!--
+<li>
   <%= link_to user.name, user %>
   <% if current_user.admin? && !current_user?(user) %>
       | <%= link_to "delete", user, method: :delete,
                     data: { confirm: "You sure?" } %>
   <% end %>
-</li>
+</li>-->

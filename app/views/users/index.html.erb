@@ -4,9 +4,20 @@
 <ul class="users">
   <section>
     <%= will_paginate @users %>
-    <%= image_tag @user.avatar.url %>
-    <%= @user.name %>
-    <%= @user.surname %> <br>
+    <br>
+    <% @users.each do |user| %>
+        <% if !user.admin? %>
+            <%= image_tag user.avatar.url(:large) %>
+            <%= user.name %>
+            <%= user.surname %>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <br>
+        <% end %>
+        <br>
+    <%end%>
+
   </section>
+
 </ul>
 

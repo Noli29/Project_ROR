@@ -42,17 +42,15 @@ class UsersController < ApplicationController
         format.js
       end
     end
-    if @user.update_attributes(params[:user])
-      redirect_to @user
-    else
-      render 'edit'
-    end
   end
 
   def destroy
-    User.find(params[:id]).destroy
-    flash[:success] = "User destroyed."
-    redirect_to users_url
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.js
+    end
   end
 
   private

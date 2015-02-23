@@ -3,7 +3,7 @@
 
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(@user, remote: true) do |f| %>
 
         <%= render 'shared/error_messages' %>
 
@@ -21,6 +21,10 @@
 
         <center>   <%= f.label :password_confirmation, "Confirm Password" %> </center>
         <center>   <%= f.password_field :password_confirmation %> </center>
+
+
+        <center>  <%= f.label :avatar, "Avatar:" %>  </center>
+        <center>  <%= f.file_field :avatar%>  </center>
 
 
         <center>   <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>

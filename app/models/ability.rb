@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
 
     user ||= User.new
-
+   # can [:create, :new, :edit,:show, :update], User
 
     if user.role?('super_admin')
       can :manage, :all

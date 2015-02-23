@@ -10,8 +10,10 @@
             <%= image_tag user.avatar.url(:large) %>
             <%= user.name %>
             <%= user.surname %>
-            <td><%= link_to 'Show', user %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <br>
+            <%= link_to 'Show', user,  class: "btn btn-warning" %>
+            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: " btn btn-danger" %>
+
         <br>
         <% end %>
         <br>

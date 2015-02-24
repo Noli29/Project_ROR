@@ -12,11 +12,16 @@
         <%= @user.surname %>
       </center> </h1>
 
+      <%if @user.admin? %>
       <div style= "float:right;margin-right:30%;">
-        <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+
+       <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+
       </div>
 
+          <%end%>
     </section>
+
 
   </aside>
 </div>

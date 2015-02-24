@@ -8,11 +8,10 @@ class Ability
 
     if user.role?('super_admin')
       can :manage, :all
-      can [:destroy]
     elsif user.role?('admin')
       can :manage, User
     else
-      can [:create, :new, :edit,:show, :update, :index], User
+      can [:create, :new, :edit,:show, :update], User
     end
   end
 

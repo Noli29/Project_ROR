@@ -3,7 +3,7 @@
 
 <ul class="users">
   <section>
-    <%= will_paginate @users %>
+    <%=paginate  @users%>
     <br>
     <% @users.each do |user| %>
         <% if !user.admin? %>
@@ -12,14 +12,18 @@
             <%= user.surname %>
             <br>
             <%= link_to 'Show', user,  class: "btn btn-warning" %>
-            <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }, class: " btn btn-danger" %>
+            <%#= link_to h(user.name), :action => 'show', :id => user%>
+            <%= link_to 'Destroy', user, method: :delete,
+                        data: { confirm: 'Are you sure?' },
+                        class: " btn btn-danger" %>
 
         <br>
         <% end %>
         <br>
     <%end%>
 
+        <%#= will_paginate @users %>
+    <p class="pull-right"><a href="#">Back to top</a></p>
   </section>
-
 </ul>
 

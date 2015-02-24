@@ -13,8 +13,8 @@
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
             <li><%= link_to "Home", current_user %></li>
-            <li><%#= link_to "Profile", current_user %></li>
             <li><%= link_to "Edit",   edit_user_path(current_user) %>
+            <li><%= link_to "Add File" %></li>
             <%if current_user.admin? %>
             <li><%= link_to "Users", users_path %></li>
             <% end %>

@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation, :role_id, :avatar
   attr_accessor :password, :password_confirmation
-  has_attached_file :avatar, :styles => { :large => "200x200>", :small => "150x150>"}
+  has_attached_file :avatar, :default_url => '/assets/images/avatar.png', :style => { :large => "200x200>", :small => "150x150>"}
+                                               # :default_url => "/assets/avatar.png"
 
 
   before_save { |user| user.email = email.downcase }
@@ -20,7 +21,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 1 }
   validates :password_confirmation, presence: true
   validates_attachment :avatar,
-                       :presence => true,
+                      # :presence => true,
                        :size => { :in => 0..10.megabytes },
                        :content_type => { :content_type => /^image\/(jpeg|png|gif|tiff)$/}
 
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
   def role?(role)
-    self.role == role
+    ["super_admin"].include? self.role.try(:name)
   end
 
   def self.search(search, page)

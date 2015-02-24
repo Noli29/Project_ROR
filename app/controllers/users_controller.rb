@@ -12,7 +12,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.search(params[:search], params[:page])
+    #@users = User.search(params[:search], params[:page])
+    @users = User.order("name").page(params[:page]).per(3)
   end
 
   def create

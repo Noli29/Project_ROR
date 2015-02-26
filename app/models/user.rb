@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation, :role_id, :avatar
   attr_accessor :password, :password_confirmation
-  has_attached_file :avatar, :default_url => '/assets/images/avatar.png', :style => { :large => "200x200>", :small => "150x150>"}
-                                               # :default_url => "/assets/avatar.png"
+  has_attached_file :avatar,  :styles => { :small => "150x150>" }
+
 
 
   before_save { |user| user.email = email.downcase }
@@ -33,12 +33,6 @@ class User < ActiveRecord::Base
 
   def role?(role)
     ["super_admin"].include? self.role.try(:name)
-  end
-
-  def self.search(search, page)
-    paginate :per_page =>2, :page => page,
-             :conditions => ['name like ?', "%#{search}%"],
-             :order => 'name'
   end
 
   def self.authenticate(email, password)

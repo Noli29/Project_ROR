@@ -12,7 +12,6 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@users = User.search(params[:search], params[:page])
     @users = User.order("name").page(params[:page]).per(3)
   end
 
@@ -30,13 +29,14 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
   end
 
   def update
     @user = User.find(params[:id])
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to(@user) }
+        format.html { redirect_to (@user) }
         format.js
       else
         format.html { render :action => "edit" }
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     @user.destroy
 
     respond_to do |format|
-      format.js
+      format.html { redirect_to :back}
     end
   end
 

@@ -17,6 +17,9 @@ group :assets do
 
   gem 'kaminari'
 
+  gem "jquery-fileupload-rails"
+ # gem 'will_paginate'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   #gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
@@ -26,7 +29,12 @@ gem "rmagick"
 gem "paperclip", "~> 4.2"
 gem 'cancan'
 gem 'pry'
+
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
+
+
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

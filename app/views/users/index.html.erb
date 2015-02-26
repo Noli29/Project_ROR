@@ -3,26 +3,30 @@
 
 <ul class="users">
   <section>
+
+
     <%=paginate  @users%>
     <br>
     <% @users.each do |user| %>
         <% if !user.admin? %>
-            <%= image_tag user.avatar.url(:large) %>
+            <%#= image_tag user.avatar.url(:small) %>
             <%= user.name %>
             <%= user.surname %>
-            <br>
-            <%= link_to 'Show', user,  class: "btn btn-warning" %>
-            <%#= link_to h(user.name), :action => 'show', :id => user%>
+
+            <%= link_to 'Show', user,  class: "btn btn-mini btn-warning" %>
+            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-mini btn-success" %>
+
             <%= link_to 'Destroy', user, method: :delete,
                         data: { confirm: 'Are you sure?' },
-                        class: " btn btn-danger" %>
+                        class: " btn btn-mini btn-danger" %>
+            <br>
+            <%= user.email %>
 
-        <br>
         <% end %>
         <br>
     <%end%>
 
-        <%#= will_paginate @users %>
+
     <p class="pull-right"><a href="#">Back to top</a></p>
   </section>
 </ul>

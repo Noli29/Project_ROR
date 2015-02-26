@@ -5,8 +5,9 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"><h1> Edit profile </h1></h4>
       </div>
-      <%= form_for(@user) do |f| %>
+      <% provide(:title, "Edit user") %>
       <div class="modal-body">
+        <%= form_for @user, remote: true, html: { multipart: :true } do |f| %>
 
             <%= render 'shared/error_messages' %>
             <%= f.label :name %>
@@ -26,10 +27,9 @@
             <div class="clear"></div>
             </div>
             <div class="modal-footer">
-              <%= f.submit "Sign in", class: "btn btn-large  btn-success" %>
               <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
             </div>
         <% end %>
-        </div>
+      </div>
   </div>
 </div>

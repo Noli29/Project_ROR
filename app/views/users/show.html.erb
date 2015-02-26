@@ -1,27 +1,24 @@
 <% provide(:title, @user.name) %>
-
 <div class="row" >
   <aside class="span4">
     <section>
+      <h1>
+        <center>
+          <p>
+            <%= image_tag @user.avatar.url(:small) %>
+          </p>
+          <%= @user.name %>
+          <%= @user.surname %>
+        </center>
+      </h1>
 
-      <h1> <center>
-        <p>
-          <%= image_tag @user.avatar.url(:large) %>
-        </p>
-        <%= @user.name %>
-        <%= @user.surname %>
-      </center> </h1>
+      <% if current_user.admin? %>
+          <div style= "float:right;margin-right:30%;">
+            <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+          </div>
+      <% end %>
 
-      <%if @user.admin? %>
-      <div style= "float:right;margin-right:30%;">
 
-       <%= link_to 'Back', users_path, class: "btn btn-primary" %>
-
-      </div>
-
-          <%end%>
     </section>
-
-
   </aside>
 </div>

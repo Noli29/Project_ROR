@@ -1,37 +1,50 @@
 <% provide(:title, "Edit user") %>
-<h1 style="color:#00EE76"> <center> Edit profile </center></h1>
+<h1 class="line1"> <center> Edit profile </center></h1>
 <div class="row">
   <div class="span6 offset3">
-
-    <%= form_for(@user, remote: true) do |f| %>
-
+    <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
 
-        <center> <%= f.label :name %> </center>
-        <center> <%= f.text_field :name %> </center>
+        <center>
+          <div style="margin-bottom: 25px;" class="input-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+          </div>
 
-        <center> <%= f.label :surname %> </center>
-        <center> <%= f.text_field :surname %> </center>
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= f.text_field :surname, class: "form-control", placeholder: "Surname" %>
+          </div>
 
-        <center> <%= f.label :email %> </center>
-        <center> <%= f.text_field :email %> </center>
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+          </div>
+
+          <div style="margin-bottom: 25px" class="input-group">
+            <%= f.text_field :password, class: "form-control", placeholder: "Password" %>
+          </div>
+
+          <div style="margin-bottom: 5px" class="input-group">
+            <%= f.text_field :password_confirmation, class: "form-control", placeholder: "Password confirmation" %>
+          </div>
+
+          <div style="margin-bottom: 15px">
+            <%= f.label :avatar, "Avatar:" %>
+            <%= f.file_field :avatar%>
+          </div>
 
 
-        <center> <%= f.label :password %> </center>
-        <center> <%= f.password_field :password %> </center>
+          <%if current_user.super_admin? %>
+              <div>
+                <%= f.select :role_id, options_from_collection_for_select(Role.all, 'id', 'name')%>
+              </div>
+          <% end %>
 
-        <center> <%= f.label :password_confirmation, "Confirm Password" %> </center>
-        <center> <%= f.password_field :password_confirmation %> </center>
-
-        <center> <%= f.label :avatar, "Avatar:" %> </center>
-        <center> <%= f.file_field :avatar%> </center>
-
-        <center> <%= f.submit "Save changes", class: "btn btn-large btn-success" %> </center>
+          <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+        </center>
 
 
         <%if current_user.admin? %>
             <div style= "float:right;margin-right:30%;">
-              <%= link_to 'Back', users_path, class: "btn btn-primary" %>
+              <%= link_to 'Back', users_path, class: "btn btn-small btn-primary" %>
             </div>
         <%end%>
 

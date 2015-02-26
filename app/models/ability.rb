@@ -10,6 +10,7 @@ class Ability
       can :manage, :all
     elsif user.role?('admin')
       can :manage, User
+      #can [:create, :new, :edit,:show, :update, :index, :destroy], User
     else
       can [:create, :new, :edit,:show, :update], User
     end

@@ -1,5 +1,5 @@
 <% provide(:title, 'All users') %>
-<h1> <center> All users </center> </h1>
+<h1 style="color:#FFA07A ; font-size:55px;"> <center> All users </center> </h1>
 
 <ul class="users">
   <section>
@@ -8,17 +8,24 @@
     <%=paginate  @users%>
     <br>
     <% @users.each do |user| %>
-        <% if !user.admin? %>
+        <% if !user.super_admin? %>
             <%#= image_tag user.avatar.url(:small) %>
-            <%= user.name %>
+            <% if user.admin?%>
+                <p>
+                  Admin:
+                  <%= user.name %>
+                </p>
+                <% else %>
+                <%= user.name %>
+             <% end %>
             <%= user.surname %>
 
-            <%= link_to 'Show', user,  class: "btn btn-mini btn-warning" %>
-            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-mini btn-success" %>
+            <%= link_to 'Show', user,  class: "btn  btn-small btn-warning " %>
+            <%= link_to 'Edit',  edit_user_path(user) ,  class: "btn btn-small btn-success" %>
 
             <%= link_to 'Destroy', user, method: :delete,
                         data: { confirm: 'Are you sure?' },
-                        class: " btn btn-mini btn-danger" %>
+                        class: " btn btn-small btn-danger" %>
             <br>
             <%= user.email %>
 
@@ -26,8 +33,6 @@
         <br>
     <%end%>
 
-
-    <p class="pull-right"><a href="#">Back to top</a></p>
   </section>
 </ul>
 

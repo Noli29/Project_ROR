@@ -7,14 +7,24 @@
 
 .line {
   color: #3fa8ff;
-  font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
-  font-size:80px;
+  font-family: tahoma;
+  font-size:70px;
+}
+
+
+
+.btn-large{
+  padding: 7px 10px !important;
+}
+
+.btn-small{
+  padding: 4px 10px !important;
 }
 
 .line1 {
   color: #15a41d;
   font-family: tahoma, arial, verdana, sans-serif, Lucida Sans;
-  font-size:80px;
+  font-size:35px;
 }
 
 #error_explanation {
@@ -23,6 +33,9 @@
     list-style: none;
     margin: 0 0 18px 0;
   }
+}
+.credit{
+  margin: 0 !important;
 }
 /*
 @import url("//fonts.googleapis.com/css?family=Lato:300,400,700");

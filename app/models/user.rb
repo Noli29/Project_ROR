@@ -27,6 +27,11 @@ class User < ActiveRecord::Base
 
 
 
+  def super_admin?
+    ["super_admin"].include? self.role.try(:name)
+  end
+
+
   def admin?
     ["admin", "super_admin"].include? self.role.try(:name)
   end

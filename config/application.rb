@@ -17,7 +17,7 @@ module Lalala
 
 
     config.generators do |g|
-      g.test_framework  :rspec
+      g.factory_girl false
     end
 
     # Custom directories with classes and modules you want to be autoloadable.

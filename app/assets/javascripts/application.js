@@ -25,5 +25,6 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
+//= require jquery.ui.all
 //= require_tree .
 

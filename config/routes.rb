@@ -11,8 +11,7 @@ Lalala::Application.routes.draw do
 
   resources :sessions
 
-
-
+  resources :uploads
 
 
 

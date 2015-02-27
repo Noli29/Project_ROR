@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  #include Authenticate
-
   attr_accessible :name, :surname,  :email, :password,  :password_confirmation, :role_id, :avatar
   attr_accessor :password, :password_confirmation
   has_attached_file :avatar,  :styles => { :small => "150x150>" }
@@ -12,6 +10,7 @@ class User < ActiveRecord::Base
   before_save :encrypt_password
 
   belongs_to :role
+  has_and_belongs_to_many :uploads
 
   validates :name,  presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

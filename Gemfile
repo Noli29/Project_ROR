@@ -52,11 +52,12 @@ gem 'jquery-ui-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'thin'
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
-  gem  'quiet_assets'
+  gem "rspec-rails"
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+
 end
 
 group :test do

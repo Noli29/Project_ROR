@@ -171,8 +171,8 @@ var hljs=new function(){function l(o){return o.replace(/&/gm,"&amp;").replace(/<
 		return Math.round((/%/.test(size) ? ((dimension === 'x' ? winWidth() : winHeight()) / 100) : 1) * parseInt(size, 10));
 	}
 	
-	// Checks an href to see if it is a photo.
-	// There is a force photo option (photo: true) for hrefs that cannot be matched by this regex.
+	// Checks an href to see if it is a photos.
+	// There is a force photos option (photos: true) for hrefs that cannot be matched by this regex.
 	function isImage(url) {
 		return settings.photo || /\.(gif|png|jp(e|g|eg)|bmp|ico)((#|\?).*)?$/i.test(url);
 	}
@@ -646,7 +646,7 @@ var hljs=new function(){function l(o){return o.replace(/&/gm,"&amp;").replace(/<
 		$loadingBay.hide();
 		
 		// floating the IMG removes the bottom line-height and fixed a problem where IE miscalculates the width of the parent element as 100% of the document width.
-		//$(photo).css({'float': 'none', marginLeft: 'auto', marginRight: 'auto'});
+		//$(photos).css({'float': 'none', marginLeft: 'auto', marginRight: 'auto'});
 		
 		$(photo).css({'float': 'none'});
 		

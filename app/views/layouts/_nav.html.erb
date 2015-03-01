@@ -14,7 +14,7 @@
         <% if signed_in? %>
             <li><%= link_to "Home", current_user %></li>
             <li><%= link_to "Edit",   edit_user_path(current_user) %>
-            <li><%= link_to "Add File", new_upload_path() %></li>
+            <li><%= link_to 'Upload photos', new_photo_multiple_path %></li>
             <%if current_user.admin? %>
             <li><%= link_to "Users", users_path %></li>
             <% end %>

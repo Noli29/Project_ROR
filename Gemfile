@@ -17,8 +17,11 @@ group :assets do
 
   gem 'kaminari'
 
-  gem "jquery-fileupload-rails"
- # gem 'will_paginate'
+  gem 'jquery-fileupload-rails'
+
+  gem 'compass-rails'
+  gem 'compass'
+  gem 'compass-susy-plugin'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   #gem 'therubyracer', :platforms => :ruby
@@ -35,6 +38,14 @@ gem 'jquery-ui-rails'
 
 
 
+gem 'dragonfly'
+gem 'dragonfly-s3_data_store'
+
+group :production do
+  gem 'rack-cache', :require => 'rack/cache'
+end
+
+gem 'remotipart', '~> 1.2'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

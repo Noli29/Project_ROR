@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-fileupload
 //= require bootstrap/affix
 //= require bootstrap/alert
 //= require bootstrap/button
@@ -25,6 +24,7 @@
 //= require bootstrap/modal
 //= require bootstrap/tooltip
 //= require bootstrap/popover
-//= require jquery.ui.all
+//= require jquery-fileupload/basic
+//= require jquery.remotipart
 //= require_tree .
 

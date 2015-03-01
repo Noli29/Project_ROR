@@ -1,0 +1,2 @@
+# Logfile created on 2015-03-01 21:11:09 +0200 by logger.rb/31641
+DRAGONFLY: configuration option protect_from_dos_attacks is deprecated - use verify_urls instead

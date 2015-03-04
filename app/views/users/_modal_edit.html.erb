@@ -1,0 +1,35 @@
+<div id="MyModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"><h1> Edit profile </h1></h4>
+      </div>
+      <% provide(:title, "Edit user") %>
+      <div class="modal-body">
+        <%= form_for @user, remote: true, html: { multipart: :true } do |f| %>
+
+            <%= render 'shared/error_messages' %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+
+            <%= f.label :surname %>
+            <%= f.text_field :surname %>
+
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation %>
+            <div class="clear"></div>
+            </div>
+            <div class="modal-footer">
+              <%= f.submit "Save changes", class: "btn btn-large btn-success" %>
+            </div>
+        <% end %>
+      </div>
+  </div>
+</div>

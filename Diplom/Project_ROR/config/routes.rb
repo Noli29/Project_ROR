@@ -6,9 +6,11 @@ Lalala::Application.routes.draw do
 
   root to: "static_pages#home"
 
-  resources :users
+
 
   resources :sessions
+  resources :users
+
 
   resources :photos, only: [:new, :create]
   get '/photos/new_multiple', to: 'photos#new_multiple', as: :new_photo_multiple

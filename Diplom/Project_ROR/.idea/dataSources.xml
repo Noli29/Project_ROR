@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="3189338650">
+    <data-source source="LOCAL" name="Rails lalala: development" uuid="73f553c3-b5c1-4e0d-acf8-8dc4d209c8db">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/proekt_development</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf98df99df9e</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails lalala: production" uuid="a6888d51-3151-4e5d-829e-cba806a92b60">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/proekt_production</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf98df99df9e</user-password>
+      <libraries />
+    </data-source>
+    <data-source source="LOCAL" name="Rails lalala: test" uuid="c9045484-5afa-4c7c-ab7f-4c195cd63c16">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://127.0.0.1/proekt_test</jdbc-url>
+      <user-name>root</user-name>
+      <user-password>df9bdf98df99df9e</user-password>
+      <libraries />
+    </data-source>
+  </component>
+</project>
+
